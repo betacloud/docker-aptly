@@ -2,6 +2,18 @@
 
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-osism%2Faptly-blue.svg)](https://hub.docker.com/r/osism/aptly/)
 
+Notes
+-----
+
+```console
+gpg: Generating a GPG key, might take a while
+
+Not enough random bytes available.  Please do some other work to give
+the OS a chance to collect more entropy! (Need 282 more bytes)
+```
+
+At the first start this is normal. Generate entropy on the host system, e.g. by using find, ping, or [haveged](http://www.issihosts.com/haveged/).
+
 License
 -------
 
