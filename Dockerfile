@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 MAINTAINER Betacloud Solutions GmbH (https://www.betacloud-solutions.de)
 
 ARG VERSION
-ENV VRSION ${VERSION:-1.1.0}
+ENV VRSION ${VERSION:-1.0.1}
 
 ENV DEBIAN_FRONTEND noninteractive
 
