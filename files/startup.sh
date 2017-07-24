@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 # If the repository GPG keypair doesn't exist, create it.
 if [[ ! -f /opt/aptly/aptly.sec ]] || [[ ! -f /opt/aptly/aptly.pub ]]; then
@@ -44,4 +44,4 @@ ln -sf /opt/aptly/aptly.pub /root/.gnupg/pubring.gpg
 /opt/nginx.conf.sh
 
 # Start Supervisor
-/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
+exec /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf

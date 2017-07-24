@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 cat << EOF > /etc/nginx/conf.d/default.conf
 server_names_hash_bucket_size 64;
