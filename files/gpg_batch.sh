@@ -1,4 +1,4 @@
-#!/usr/binenv bash
+#!/usr/bin/env bash
 
 cat << EOF > /opt/gpg_batch
 %echo Generating a GPG key, might take a while
