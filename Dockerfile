@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER Betacloud Solutions GmbH (https://www.betacloud-solutions.de)
+LABEL maintainer="Betacloud Solutions GmbH (https://www.betacloud-solutions.de)"
 
 ARG VERSION
 ENV VRSION ${VERSION:-1.0.1}
