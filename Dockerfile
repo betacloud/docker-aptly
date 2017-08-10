@@ -21,6 +21,7 @@ RUN apt-get update \
        aptly \
        bash-completion \
        bzip2 \
+       curl \
        gnupg \
        gpgv \
        graphviz \
