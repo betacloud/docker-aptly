@@ -24,8 +24,9 @@ RUN apt-get update \
        gnupg \
        gpgv \
        graphviz \
-       supervisor \
+       lsb-release \
        nginx \
+       supervisor \
        wget \
        xz-utils
 
