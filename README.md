@@ -32,7 +32,7 @@ Author information
 
 This Docker image was provided by [Betacloud Solutions GmbH](https://www.betacloud-solutions.de).
 
-Baed on https://github.com/bryanhong/docker-aptly.
+Based on https://github.com/bryanhong/docker-aptly.
 
 Notices
 -------
