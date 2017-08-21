@@ -29,7 +29,9 @@ RUN apt-get update \
        nginx \
        supervisor \
        wget \
-       xz-utils
+       xz-utils \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Aptly Configuration
 COPY files/aptly.conf /etc/aptly.conf
@@ -52,10 +54,6 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # Install scripts
 COPY files/*.sh /opt/
-
-RUN apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && rm -rf /ara-repository
 
 # Bind mount location
 VOLUME ["/opt/aptly"]
