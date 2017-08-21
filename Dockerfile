@@ -6,7 +6,7 @@ ENV VRSION ${VERSION:-1.0.1}
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list
+RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
    && apt-key adv --keyserver keys.gnupg.net --recv-keys 9E3E53F19C7DE460 \
    && echo "deb http://nginx.org/packages/ubuntu/ xenial nginx" > /etc/apt/sources.list.d/nginx.list \
    && echo "deb-src http://nginx.org/packages/ubuntu/ xenial nginx" >> /etc/apt/sources.list.d/nginx.list \
