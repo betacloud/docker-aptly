@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 LABEL maintainer="Betacloud Solutions GmbH (https://www.betacloud-solutions.de)"
 
 ARG VERSION
-ENV VRSION ${VERSION:-1.1.1}
+ENV VRSION ${VERSION:-1.2.0}
 
 ENV DEBIAN_FRONTEND noninteractive
 
