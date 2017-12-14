@@ -37,7 +37,7 @@ RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/ap
   fi\n\
 fi" >> /etc/bash.bashrc \
     && echo "daemon off;" >> /etc/nginx/nginx.conf \
-    && curl -sSL https://repository.osism.io/aptly.pub | gpg --import --no-default-keyring --keyring trustedkeys.gpg -
+    && curl -sSL https://repository-1.osism.io/aptly.pub | gpg --import --no-default-keyring --keyring trustedkeys.gpg -
 
 COPY files/aptly.conf /etc/aptly.conf
 COPY files/nginx.conf.sh /opt/nginx.conf.sh
