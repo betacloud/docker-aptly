@@ -26,8 +26,7 @@ RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/ap
        xz-utils \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-  && wget https://github.com/smira/aptly/raw/master/bash_completion.d/aptly \
-  -O /etc/bash_completion.d/aptly \
+  && wget https://raw.githubusercontent.com/aptly-dev/aptly/master/completion.d/aptly -O /etc/bash_completion.d/aptly \
   && echo "if ! shopt -oq posix; then\n\
   if [ -f /usr/share/bash-completion/bash_completion ]; then\n\
     . /usr/share/bash-completion/bash_completion\n\
