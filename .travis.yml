@@ -13,6 +13,13 @@ before_install:
   - docker login --username="$TRAVIS_DOCKER_USERNAME" --password="$TRAVIS_DOCKER_PASSWORD"
   - docker info
 
+env:
+  global:
+    - REPOSITORY=osism/aptly
+  matrix:
+    - VERSION=1.2.0
+    - VERSION=1.3.0
+
 script:
   - bash scripts/build.sh
 
