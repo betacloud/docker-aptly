@@ -7,9 +7,9 @@ ENV VRSION ${VERSION:-1.3.0}
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
-   && apt-key adv --keyserver keys.gnupg.net --recv-keys 9E3E53F19C7DE460 \
+   && apt-key adv --keyserver keys.gnupg.net --recv-keys ED75B5A4483DA07C \
    && echo "deb http://nginx.org/packages/ubuntu/ xenial nginx" > /etc/apt/sources.list.d/nginx.list \
-   && apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
+   && apt-key adv --fetch-keys http://nginx.org/keys/nginx_signing.key \
    && apt-get update \
    && apt-get -y install \
        aptly \
