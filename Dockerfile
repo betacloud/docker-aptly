@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 LABEL maintainer="Betacloud Solutions GmbH (https://www.betacloud-solutions.de)"
 
 ARG VERSION
@@ -8,22 +8,17 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
    && apt-get -y install \
-       gnupg \
+       gnupg gpgv \
    && echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
-   && apt-key adv --keyserver keys.gnupg.net --recv-keys ED75B5A4483DA07C \
-   && echo "deb http://nginx.org/packages/ubuntu/ xenial nginx" > /etc/apt/sources.list.d/nginx.list \
-   && apt-key adv --fetch-keys http://nginx.org/keys/nginx_signing.key \
+   && apt-key adv --keyserver pool.sks-keyservers.net --recv-keys "0xED75B5A4483DA07C" \
    && apt-get update \
    && apt-get -y install \
        aptly \
        bash-completion \
        bzip2 \
        curl \
-       gpgv \
        graphviz \
        lsb-release \
-       nginx \
-       supervisor \
        wget \
        xz-utils \
   && apt-get clean \
@@ -35,12 +30,9 @@ RUN apt-get update \
   elif [ -f /etc/bash_completion ]; then\n\
     . /etc/bash_completion\n\
   fi\n\
-fi" >> /etc/bash.bashrc \
-    && echo "daemon off;" >> /etc/nginx/nginx.conf
+fi" >> /etc/bash.bashrc
 
 COPY files/aptly.conf /etc/aptly.conf
-COPY files/nginx.conf.sh /opt/nginx.conf.sh
-COPY files/supervisord.nginx.conf /etc/supervisor/conf.d/nginx.conf
 COPY files/*.sh /opt/
 
 # Bind mount location

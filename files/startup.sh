@@ -40,8 +40,4 @@ fi
 ln -sf /opt/aptly/aptly.sec /root/.gnupg/secring.gpg
 ln -sf /opt/aptly/aptly.pub /root/.gnupg/pubring.gpg
 
-# Generate Nginx Config
-/opt/nginx.conf.sh
-
-# Start Supervisor
-exec /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
+exec sleep infinity
