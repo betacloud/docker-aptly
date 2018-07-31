@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:18.04
 LABEL maintainer="Betacloud Solutions GmbH (https://www.betacloud-solutions.de)"
 
 ARG VERSION
@@ -6,7 +6,10 @@ ENV VRSION ${VERSION:-1.3.0}
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
+RUN apt-get update \
+   && apt-get -y install \
+       gnupg \
+   && echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
    && apt-key adv --keyserver keys.gnupg.net --recv-keys ED75B5A4483DA07C \
    && echo "deb http://nginx.org/packages/ubuntu/ xenial nginx" > /etc/apt/sources.list.d/nginx.list \
    && apt-key adv --fetch-keys http://nginx.org/keys/nginx_signing.key \
@@ -16,7 +19,6 @@ RUN echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/ap
        bash-completion \
        bzip2 \
        curl \
-       gnupg \
        gpgv \
        graphviz \
        lsb-release \
