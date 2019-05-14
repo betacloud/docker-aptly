@@ -8,9 +8,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
    && apt-get -y install \
-       gnupg gpgv \
+       gnupg \
+       gpgv \
    && echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
-   && apt-key adv --keyserver pool.sks-keyservers.net --recv-keys "0xED75B5A4483DA07C" \
+   && apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED75B5A4483DA07C \
    && apt-get update \
    && apt-get -y install \
        aptly \
