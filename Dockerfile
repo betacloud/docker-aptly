@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 LABEL maintainer="Betacloud Solutions GmbH (https://www.betacloud-solutions.de)"
 
 ARG VERSION
-ENV VRSION ${VERSION:-1.3.0}
+ENV VRSION ${VERSION:-1.4.0}
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -14,7 +14,7 @@ RUN apt-get update \
    && apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED75B5A4483DA07C \
    && apt-get update \
    && apt-get -y install \
-       aptly \
+       aptly=$VERSION \
        bash-completion \
        bzip2 \
        curl \
