@@ -6,14 +6,16 @@ ENV VRSION ${VERSION:-1.4.0}
 
 ENV DEBIAN_FRONTEND noninteractive
 
+COPY files/aptly.gpg /etc/apt/aptly.gpg
+
 RUN apt-get update \
    && apt-get install --no-install-recommends -y \
        gnupg \
        gpgv \
    && printf "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
-   && apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED75B5A4483DA07C \
+   && apt-key add /etc/apt/aptly.gpg \
    && apt-get update \
-   && apt-get install --no-install-recommends -y\
+   && apt-get install --no-install-recommends -y \
        aptly=$VERSION \
        ca-certificates \
        bash-completion \
