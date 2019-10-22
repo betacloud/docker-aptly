@@ -7,14 +7,15 @@ ENV VRSION ${VERSION:-1.4.0}
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
-   && apt-get -y install \
+   && apt-get install --no-install-recommends -y \
        gnupg \
        gpgv \
-   && echo "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
+   && printf "deb http://repo.aptly.info/ squeeze main" > /etc/apt/sources.list.d/aptly.list \
    && apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED75B5A4483DA07C \
    && apt-get update \
-   && apt-get -y install \
+   && apt-get install --no-install-recommends -y\
        aptly=$VERSION \
+       ca-certificates \
        bash-completion \
        bzip2 \
        curl \
@@ -25,7 +26,7 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && wget https://raw.githubusercontent.com/aptly-dev/aptly/master/completion.d/aptly -O /etc/bash_completion.d/aptly \
-  && echo "if ! shopt -oq posix; then\n\
+  && printf "if ! shopt -oq posix; then\n\
   if [ -f /usr/share/bash-completion/bash_completion ]; then\n\
     . /usr/share/bash-completion/bash_completion\n\
   elif [ -f /etc/bash_completion ]; then\n\
