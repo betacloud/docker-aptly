@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 LABEL maintainer="Betacloud Solutions GmbH (https://www.betacloud-solutions.de)"
 
 ARG VERSION
-ENV VRSION ${VERSION:-1.4.0}
+ENV VRSION ${VERSION:-latest}
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -16,7 +16,6 @@ RUN apt-get update \
    && apt-key add /etc/apt/aptly.gpg \
    && apt-get update \
    && apt-get install --no-install-recommends -y \
-       aptly=$VERSION \
        ca-certificates \
        bash-completion \
        bzip2 \
@@ -25,6 +24,7 @@ RUN apt-get update \
        lsb-release \
        wget \
        xz-utils \
+  && if [ $VERSION != "latest" ]; then apt-get install --no-install-recommends -y aptly=$VERSION; else apt-get install --no-install-recommends -y aptly; fi \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && wget https://raw.githubusercontent.com/aptly-dev/aptly/master/completion.d/aptly -O /etc/bash_completion.d/aptly \
