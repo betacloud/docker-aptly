@@ -1,0 +1,10 @@
+---
+docker_image_name: aptly
+readme_note: |
+  This image is based on https://github.com/bryanhong/docker-aptly, developed
+  by Bryan Hong (http://github.com/bryanhong), and Jan Čapek (https://github.com/honzik666),
+  licensed under the Apache License.
+versions:
+  - latest
+  - 1.3.0
+  - 1.4.0
