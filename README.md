@@ -1,3 +1,7 @@
+**This project is no longer maintained.**
+
+Pulp is used for the management of repositories. Therefore this image is no longer needed within OSISM and is no longer maintained.
+
 # docker-aptly
 
 [![Build Status](https://travis-ci.org/osism/docker-aptly.svg?branch=master)](https://travis-ci.org/osism/docker-aptly)
